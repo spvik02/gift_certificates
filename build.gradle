@@ -1,0 +1,41 @@
+plugins {
+	id 'java'
+	id 'io.freefair.lombok' version '8.0.1'
+	id 'war'
+}
+
+group = 'ru.clevertec'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.postgresql:postgresql:42.3.8'
+	implementation 'org.hibernate:hibernate-core:5.6.10.Final'
+	testImplementation 'com.h2database:h2:2.1.214'
+
+	implementation 'org.springframework:spring-core:5.3.27'
+	implementation 'org.springframework:spring-beans:5.3.27'
+	implementation 'org.springframework:spring-context:5.3.27'
+	implementation 'org.springframework:spring-web:5.3.27'
+	implementation 'org.springframework:spring-webmvc:5.3.27'
+	implementation 'org.springframework:spring-test:5.3.27'
+	implementation 'org.springframework.data:spring-data-jpa:3.0.5'
+	compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
+
+	implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+	testImplementation 'org.assertj:assertj-core:3.23.1'
+	testImplementation 'org.mockito:mockito-core:4.8.0'
+	testImplementation 'org.mockito:mockito-junit-jupiter:5.1.1'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
